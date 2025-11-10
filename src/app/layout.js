@@ -1,4 +1,9 @@
+import { Manrope } from 'next/font/google'
 import "./globals.css";
+
+const manrope = Manrope({
+  subsets: ['ru'],
+})
 
 export const metadata = {
   title: "Create Next App",
@@ -7,11 +12,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-      >
-        {children}
-      </body>
+    <html lang="ru" className={manrope.className}>
+      <body>{children}</body>
     </html>
   );
 }
