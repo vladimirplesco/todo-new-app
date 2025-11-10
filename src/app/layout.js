@@ -1,9 +1,12 @@
 import { Manrope } from 'next/font/google'
 import "./globals.css";
 
-const manrope = Manrope({
-  subsets: ['latin'],
+const manroperu = Manrope({
   subsets: ['cyrillic'],
+})
+
+const manropelat = Manrope({
+  subsets: ['latin'],
 })
 
 export const metadata = {
@@ -12,9 +15,27 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  return (
-    <html lang="ru" className={manrope.className}>
-      <body>{children}</body>
-    </html>
-  );
+  let htmlContent;
+
+  if (lang === 'ru') {
+    htmlContent = (
+      <html lang="ru" className={manroperu.className}>
+        <body>{children}</body>
+      </html>
+    );
+  } else if (lang === 'en') {
+    htmlContent = (
+      <html lang="en" className={manropelat.className}>
+        <body>{children}</body>
+      </html>
+    );
+  } else {
+    htmlContent = (
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    );
+  }
+
+  return htmlContent;
 }
