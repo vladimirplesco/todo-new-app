@@ -1,7 +1,7 @@
 import { Manrope } from 'next/font/google'
 import "./globals.css";
 
-const manropelat = Manrope({
+const manrope = Manrope({
   subsets: ['latin', 'cyrillic'],
 })
 
