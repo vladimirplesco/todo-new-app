@@ -6,7 +6,7 @@ export default function Home() {
         <input  className="input input-primary" type="text" />
         <button className="btn btn-primary">Кнопка</button>
       </div>
-      <ul class="list bg-base-100 rounded-box shadow-md gap-4">
+      <ul class="list bg-base-200 rounded-box gap-4">
         <li>Я на солнышке сижу</li>
         <li>Я на солнышко гляжу</li>
         <li>Всё сижу и сижу</li>
