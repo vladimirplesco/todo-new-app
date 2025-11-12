@@ -6,17 +6,16 @@ export default function Home() {
         <input  className="input input-primary" type="text" />
         <button className="btn btn-primary">Кнопка</button>
       </div>
-      
-      <div className="flex flex-col gap-4">
-      <div>Я на солнышке лежу</div>
-      <div>Я на солнышко гляжу</div>
-      <div>Всё сижу и сижу</div>
-      <div>И на солнышко гляжу.</div>
-      <div>Носорог-рог-рог идёт, </div>
-      <div>Крокодил-дил-дил плывёт, </div>
-      <div>Только я все сижу</div>
-      <div>И на солнышко гляжу.</div>
-      </div>
+      <ul class="list bg-base-100 rounded-box shadow-md">
+        <li>Я на солнышко гляжу</li>
+        <li>Всё сижу и сижу</li>
+        <li>И на солнышко гляжу.</li>
+        <li>Носорог-рог-рог идёт, </li>
+        <li>Крокодил-дил-дил плывёт, </li>
+        <li>Только я все сижу</li>
+        <li>И на солнышко гляжу.</li>
+      </ul>
+
     </div>
   );
 }
