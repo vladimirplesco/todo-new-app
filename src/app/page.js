@@ -8,14 +8,14 @@ export default function Home() {
       </div>
       
       <div className="flex flex-col gap-4">
-      <div>Я</div>
-      <div>на</div>
-      <div>солнышке</div>
-      <div>лежу,</div>
-      <div>я</div>
-      <div>на</div>
-      <div>солнышко</div>
-      <div>гляжу!</div>
+      <div>Я на солнышке лежу</div>
+      <div>Я на солнышко гляжу</div>
+      <div>Всё сижу и сижу</div>
+      <div>И на солнышко гляжу.</div>
+      <div>Носорог-рог-рог идёт, </div>
+      <div>Крокодил-дил-дил плывёт, </div>
+      <div>Только я все сижу</div>
+      <div>И на солнышко гляжу.</div>
       </div>
     </div>
   );
