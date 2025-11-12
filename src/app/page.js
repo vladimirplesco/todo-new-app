@@ -1,6 +1,6 @@
 
 export default function Home() {
   return (
-          <button>Кнопка</button>
+          <button className="btn btn-primary">Кнопка</button>
   );
 }
