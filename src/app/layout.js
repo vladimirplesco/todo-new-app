@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
       <html lang='ru' className={manrope.className}>
-        <body>{children}</body>
+        <body className='p-4'>{children}</body>
       </html>
   ); 
 }
