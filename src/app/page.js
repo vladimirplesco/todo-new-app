@@ -12,15 +12,15 @@ export default function Home() {
   ];
   return (
     <div className="max-w-xl mx-auto p-4">
-    <div className="flex flex-col w-full gap-4 items-center justify-between p-4">
-      <div className="flex gap-4  w-full justify-center" >
-        <input  className="input input-primary grow" type="text" placeholder="Введите текст"/>
+    <div className="flex flex-col w-full gap-4 items-center justify-between p-4 w-full">
+      <div className="flex flex-wrap md:flex-nowrap gap-4 justify-center w-full" >
+        <input  className="input input-primary grow sm:shrink-0" type="text" placeholder="Введите текст"/>
         <button className="btn btn-primary shrink-0">Кнопка</button>
       </div>
-      <ul className="list bg-base-300 rounded-box gap-4  w-full">
-       {vers.map((string) => <li className="border-base-content/10 p-4 border" key={string.id}>{string.value}</li>)}
+      <ul className="list bg-base-300 rounded-box gap-4 w-full">
+       {vers.map((string) => <li className="border-base-content/10 p-4 border w-full" key={string.id}>{string.value}</li>)}
       </ul>
     </div>
-    </div>
+   </div>
   );
 }
