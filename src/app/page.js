@@ -1,5 +1,14 @@
 
 export default function Home() {
+  const vers = ["Я на солнышке сижу", 
+    "Я на солнышко гляжу", 
+    "Всё сижу и сижу", 
+    "И на солнышко гляжу.", 
+    "Носорог-рог-рог идёт,", 
+    "Крокодил-дил-дил плывёт,", 
+    "Только я все сижу", 
+    "И на солнышко гляжу."
+  ];
   return (
     <div>
       <div className="flex gap-4">
@@ -7,16 +16,8 @@ export default function Home() {
         <button className="btn btn-primary">Кнопка</button>
       </div>
       <ul class="list bg-base-200 rounded-box gap-4">
-        <li>Я на солнышке сижу</li>
-        <li>Я на солнышко гляжу</li>
-        <li>Всё сижу и сижу</li>
-        <li>И на солнышко гляжу.</li>
-        <li>Носорог-рог-рог идёт, </li>
-        <li>Крокодил-дил-дил плывёт, </li>
-        <li>Только я все сижу</li>
-        <li>И на солнышко гляжу.</li>
+       {vers.map((string, index) => <li key={index}>{string}</li>)}
       </ul>
-
     </div>
   );
 }
