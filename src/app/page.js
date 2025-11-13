@@ -11,14 +11,16 @@ export default function Home() {
     {id: "7", value:"И на солнышко гляжу."}
   ];
   return (
-    <div className="flex flex-col gap-4 items-center justify-between p-4">
-      <div className="flex gap-4">
-        <input  className="input input-primary" type="text" />
-        <button className="btn btn-primary">Кнопка</button>
+    <div className="max-w-xl mx-auto p-4">
+    <div className="flex flex-col w-full gap-4 items-center justify-between p-4">
+      <div className="flex gap-4  w-full justify-center" >
+        <input  className="input input-primary grow" type="text" placeholder="Введите текст"/>
+        <button className="btn btn-primary shrink-0">Кнопка</button>
       </div>
-      <ul className="list bg-base-200 rounded-box gap-4">
-       {vers.map((string) => <li key={string.id}>{string.value}</li>)}
+      <ul className="list bg-base-300 rounded-box gap-4  w-full">
+       {vers.map((string) => <li className="border-base-content/10 p-4 border" key={string.id}>{string.value}</li>)}
       </ul>
+    </div>
     </div>
   );
 }
