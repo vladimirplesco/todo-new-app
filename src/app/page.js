@@ -16,7 +16,7 @@ export default function Home() {
         <button className="btn btn-primary grow">Кнопка</button>
       </div>
       <ul className="list bg-base-200 rounded-box flex flex-col">
-        {vers.map((item) => <li className="border-b border-base-content/10 last:border-b-0 px-2 py-4" w-full" key={item.id}>{item.value}</li>)}
+        {vers.map((item) => <li className="border-b border-base-content/10 last:border-b-0 px-2 py-4 w-full" key={item.id}>{item.value}</li>)}
       </ul>
     </div>
   );
