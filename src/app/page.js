@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="max-w-xl mx-auto">
       <div className="flex flex-wrap gap-4 w-full justify-center mb-6">
-        <input  className="input input-primary grow pe-1" type="text" placeholder="Введите текст"/>
+        <input  className="input input-primary grow" type="text" placeholder="Введите текст"/>
         <button className="btn btn-primary grow">Кнопка</button>
       </div>
       <ul className="list bg-base-200 rounded-box flex flex-col">
