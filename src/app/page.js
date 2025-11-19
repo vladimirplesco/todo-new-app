@@ -19,11 +19,6 @@ export default function Home() {
         setInputValue("");
       }
   }
-
-  function handleTextChange(e) {
-    setInputValue(e.target.value);
-  }
-
   return (
     <div className="max-w-xl mx-auto">
       <div className="space-y-6">
@@ -32,8 +27,8 @@ export default function Home() {
       </div>
       <form action={addItem}>
         <div className="flex flex-wrap gap-4 w-full justify-center mb-6">
-          <input  className="input input-primary grow" type="text" placeholder="Что нужно сделать?" value={inputValue} onChange={function(event) { setInputValue(event.target.value) }}/>
-          <button className="btn btn-primary grow" type='submit' onClick={addItem}>Добавить</button>
+          <input  className="input input-primary grow" type="text" placeholder="Что нужно сделать?" value={inputValue} onChange={(event) => setInputValue(event.target.value) }/>
+          <button className="btn btn-primary grow" type='submit'>Добавить</button>
         </div>
       </form>
       <ul className="list bg-base-200 rounded-box flex flex-col">
