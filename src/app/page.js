@@ -8,14 +8,12 @@ export default function Home() {
   const inputRef = useRef(null);
 
   function addItem() {
-    const inputValue = inputRef.current.value.trim;
 
-    if (inputValue.length > 0) {
       const newItem = {
         id: crypto.randomUUID(),
-        value: inputValue.trim(),
+        value: inputRef.current.value.trim(),
       };
-
+    if (newItem.value.length > 0) {
       setVers([...vers, newItem]);
       inputRef.current.value = "";
       inputRef.current.focus();
