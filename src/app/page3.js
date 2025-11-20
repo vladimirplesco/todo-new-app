@@ -6,20 +6,18 @@ export default function Home() {
 
   const [vers, setVers] = useState([]);
 
-  function addItem() {
-    const inputElement = document.getElementById("myInput");
-    const inputValue = inputElement.value;
+  const [inputValue, setInputValue] = useState("");
 
-    if (inputValue.length > 0) {
+  function addItem() {
       const newItem = {
         id: crypto.randomUUID(),
         value: inputValue.trim(),
       };
 
-      setVers([...vers, newItem]);
-      inputElement.value = "";
-      inputElement.focus(); 
-    }
+      if (newItem.value.length > 0) {
+        setVers([...vers, newItem]);
+        setInputValue("");
+      }
   }
   return (
     <div className="max-w-xl mx-auto">
@@ -29,7 +27,7 @@ export default function Home() {
       </div>
       <form action={addItem}>
         <div className="flex flex-wrap gap-4 w-full justify-center mb-6">
-          <input id="myInput" className="input input-primary grow" type="text" placeholder="Что нужно сделать?" />
+          <input  className="input input-primary grow" type="text" placeholder="Что нужно сделать?" value={inputValue} onChange={(event) => setInputValue(event.target.value) }/>
           <button className="btn btn-primary grow" type='submit'>Добавить</button>
         </div>
       </form>
