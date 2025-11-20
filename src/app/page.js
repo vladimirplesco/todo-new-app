@@ -8,8 +8,7 @@ export default function Home() {
   const inputRef = useRef(null);
 
   function addItem() {
-    const inputElement = inputRef.current;
-    const inputValue = inputElement.value;
+    const inputValue = inputRef.current.value.trim;
 
     if (inputValue.length > 0) {
       const newItem = {
