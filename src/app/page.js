@@ -1,13 +1,14 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export default function Home() {
 
   const [vers, setVers] = useState([]);
+  const inputRef = useRef(null);
 
   function addItem() {
-    const inputElement = document.getElementById("myInput");
+    const inputElement = inputRef.current;
     const inputValue = inputElement.value;
 
     if (inputValue.length > 0) {
@@ -17,8 +18,8 @@ export default function Home() {
       };
 
       setVers([...vers, newItem]);
-      inputElement.value = "";
-      inputElement.focus(); 
+      inputRef.current.value = "";
+      inputRef.current.focus();
     }
   }
   return (
@@ -29,7 +30,7 @@ export default function Home() {
       </div>
       <form action={addItem}>
         <div className="flex flex-wrap gap-4 w-full justify-center mb-6">
-          <input id="myInput" className="input input-primary grow" type="text" placeholder="Что нужно сделать?" />
+          <input ref={inputRef} className="input input-primary grow" type="text" placeholder="Что нужно сделать?" />
           <button className="btn btn-primary grow" type='submit'>Добавить</button>
         </div>
       </form>
