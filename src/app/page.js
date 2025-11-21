@@ -15,7 +15,6 @@ export default function Home() {
       };
 
       setVers([...vers, newItem]);
-      inputRef.current.value = "";
       inputRef.current.focus();
   }
   return (
