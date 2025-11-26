@@ -1,7 +1,8 @@
-import React, { forwardRef } from 'react';
+// import React, { forwardRef } from 'react';
 import { useRef } from "react";
   
-const Form = forwardRef((props, ref) => {
+const Form = (props) => {
+  // const Form = forwardRef((props, ref) => {
   const inputRef = useRef(null);
   function addItem() {
   
@@ -23,6 +24,6 @@ const Form = forwardRef((props, ref) => {
       </form>
     </div>
   );
-});
+};
 
 export { Form };
