@@ -9,12 +9,10 @@ export default function Home() {
   const [vers, setVers] = useState([]);
   
 return (
-    <div className="max-w-xl mx-auto">
-      <div className="space-y-6">
+    <div className="max-w-xl mx-auto space-y-6">
         <Title />
         <Form vers={ vers } setVers={ setVers }/>
         <List vers={ vers }/>
-      </div>
     </div>
   );
 } 
