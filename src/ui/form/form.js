@@ -1,6 +1,6 @@
 import { useRef } from "react";
   
-const Form = ( {vers, setVers} = props) => {
+const Form = ( {vers, setVers} ) => {
   const inputRef = useRef(null);
   function addItem() {
   
