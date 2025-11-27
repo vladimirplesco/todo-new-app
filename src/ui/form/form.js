@@ -1,8 +1,7 @@
-// import React, { forwardRef } from 'react';
+import { Vesper_Libre } from "next/font/google";
 import { useRef } from "react";
   
-const Form = (props) => {
-  // const Form = forwardRef((props, ref) => {
+const Form = ( {vers, setVers} = props) => {
   const inputRef = useRef(null);
   function addItem() {
   
@@ -11,7 +10,7 @@ const Form = (props) => {
         value: inputRef.current.value.trim(),
       };
 
-      props.setVers([...props.vers, newItem]);
+      setVers([...vers, newItem]);
       inputRef.current.focus();
   }
   return (
