@@ -1,4 +1,3 @@
-import { Vesper_Libre } from "next/font/google";
 import { useRef } from "react";
   
 const Form = ( {vers, setVers} = props) => {
