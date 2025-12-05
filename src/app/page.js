@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import { Title } from "../ui/title/title";
@@ -7,13 +7,12 @@ import { List } from "../ui/list/list";
 
 export default function Home() {
   const [vers, setVers] = useState([]);
-  
-return (
+
+  return (
     <div className="max-w-xl mx-auto space-y-6">
-        <Title />
-        <Form vers={ vers } setVers={ setVers }/>
-        <List vers={ vers } setVers={ setVers }/>
+      <Title />
+      <Form vers={vers} setVers={setVers} />
+      <List vers={vers} setVers={setVers} />
     </div>
   );
-} 
-  
+}
