@@ -9,7 +9,6 @@ const Form = ( {vers, setVers} ) => {
         value: inputRef.current.value.trim(),
         completed: false,
       };
-      alert(`Новый элемент:\n\nID: ${newItem.id}\nЗадача: ${newItem.value}\nВыполнено: ${newItem.completed}`);
 
       setVers([...vers, newItem]);
       inputRef.current.focus();
