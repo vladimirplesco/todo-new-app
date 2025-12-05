@@ -12,7 +12,7 @@ return (
     <div className="max-w-xl mx-auto space-y-6">
         <Title />
         <Form vers={ vers } setVers={ setVers }/>
-        <List vers={ vers }/>
+        <List vers={ vers } setVers={ setVers }/>
     </div>
   );
 } 
