@@ -18,9 +18,7 @@ export default function Home() {
   },[]);
 
   useEffect(() => {
-    if (vers.length > 0) {
       localStorage.setItem("vers", JSON.stringify(vers));
-    }
   }, [vers]);
 
   return (
