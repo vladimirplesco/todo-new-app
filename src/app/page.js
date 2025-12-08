@@ -9,10 +9,9 @@ import { Delete } from "../ui/delete/delete";
 
 export default function Home() {
   const [vers, setVers] = useState(() => {
-      const storedVers = localStorage.getItem("vers");
-      return storedVers ? JSON.parse(storedVers) : [];
-    return [];
-  });
+    const storedVers = localStorage.getItem("vers");
+    return storedVers ? JSON.parse(storedVers) : [];
+});
   return (
     <div className="max-w-xl mx-auto space-y-6">
       <Title />
