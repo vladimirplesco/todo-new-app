@@ -12,9 +12,6 @@ const Form = ({ vers, setVers }) => {
     setVers([...vers, newItem]);
     inputRef.current.focus();
   }
-  useEffect(() => {
-      localStorage.setItem("vers", JSON.stringify(vers));
-    }, [vers]);
   return (
     <form action={addItem} className="flex flex-wrap gap-4 w-full mb-6">
       <input

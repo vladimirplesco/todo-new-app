@@ -8,12 +8,21 @@ import { Delete } from "../ui/delete/delete";
 
 
 export default function Home() {
+  const [vers, setVers] = useState([]);
+
   useEffect(() => {
     const storedVers = localStorage.getItem("vers");
-    storedVers ? JSON.parse(storedVers) : [];
+    if (storedVers) {
+      setVers(JSON.parse(storedVers));
+    }
   },[]);
 
-  const [vers, setVers] = useState(storedVers);
+  useEffect(() => {
+    if (vers.length > 0) {
+      localStorage.setItem("vers", JSON.stringify(vers));
+    }
+  }, [vers]);
+
   return (
     <div className="max-w-xl mx-auto space-y-6">
       <Title />
