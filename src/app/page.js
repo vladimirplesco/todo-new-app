@@ -8,8 +8,13 @@ import { Delete } from "../ui/delete/delete";
 
 
 export default function Home() {
-  const [vers, setVers] = useState([]);
-
+  const [vers, setVers] = useState(() => {
+    if (typeof window !== "undefined") {
+      const storedVers = localStorage.getItem("vers");
+      return storedVers ? JSON.parse(storedVers) : [];
+    }
+    return [];
+  });
   return (
     <div className="max-w-xl mx-auto space-y-6">
       <Title />

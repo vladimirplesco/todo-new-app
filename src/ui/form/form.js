@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 const Form = ({ vers, setVers }) => {
   const inputRef = useRef(null);
@@ -12,6 +12,9 @@ const Form = ({ vers, setVers }) => {
     setVers([...vers, newItem]);
     inputRef.current.focus();
   }
+  useEffect(() => {
+      localStorage.setItem("vers", JSON.stringify(vers));
+    }, [vers]);
   return (
     <form action={addItem} className="flex flex-wrap gap-4 w-full mb-6">
       <input
