@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, use } from "react";
 import { Title } from "../ui/title/title";
 import { Form } from "../ui/form/form";
 import { List } from "../ui/list/list";
@@ -8,10 +8,12 @@ import { Delete } from "../ui/delete/delete";
 
 
 export default function Home() {
-  const [vers, setVers] = useState(() => {
+  useEffect(() => {
     const storedVers = localStorage.getItem("vers");
-    return storedVers ? JSON.parse(storedVers) : [];
-});
+    storedVers ? JSON.parse(storedVers) : [];
+  },[]);
+
+  const [vers, setVers] = useState(storedVers);
   return (
     <div className="max-w-xl mx-auto space-y-6">
       <Title />
