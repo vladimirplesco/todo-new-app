@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Title } from "./ui/title/title";
-import { Form } from "./ui/form/form";
-import { List } from "./ui/list/list";
-import { Delete } from "./ui/delete/delete";
+import { Title } from "../ui/title/title";
+import { Form } from "../ui/form/form";
+import { List } from "../ui/list/list";
+import { Delete } from "../ui/delete/delete";
 
 
 export default function Home() {
