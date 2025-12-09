@@ -3,7 +3,7 @@ export function Delete({ vers, setVers }) {
     setVers(vers.filter((item) => !item.completed));
   }
   return (
-    <button className="btn btn-primary" onClick={deleteChecked}>
+    <button className="btn btn-primary mb-6" onClick={deleteChecked}>
       Удалить выполненные
     </button>
   );
