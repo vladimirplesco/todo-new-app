@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
 const Form = ({ vers, setVers }) => {
   const inputRef = useRef(null);
@@ -7,6 +7,7 @@ const Form = ({ vers, setVers }) => {
       id: crypto.randomUUID(),
       value: inputRef.current.value.trim(),
       completed: false,
+      isEditing: false,
     };
 
     setVers([...vers, newItem]);
@@ -22,7 +23,7 @@ const Form = ({ vers, setVers }) => {
         placeholder="Что нужно сделать?"
       />
       <button className="btn btn-primary grow" type="submit">
-        Добавить
+        {vers.some((item) => item.isEditing) ? "Сохранить" : "Добавить"}
       </button>
     </form>
   );
