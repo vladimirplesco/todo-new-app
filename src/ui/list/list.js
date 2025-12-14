@@ -45,11 +45,11 @@ export function List({ vers, setVers }) {
               onChange={(e) => handleChange(item.id, e.target.value)}
             />
           ) : (
-            <span>{item.value}</span>
+            <span className="grow">{item.value}</span>
           )}
           <input
             type="checkbox"
-            className="checkbox checkbox-primary justify-between items-right"
+            className="checkbox checkbox-primary"
             checked={item.completed}
             onChange={() => toggleCompleted(item.id)}
           />
