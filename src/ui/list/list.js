@@ -30,6 +30,18 @@ export function List({ vers, setVers }) {
     setVers(newVers);
   }
 
+  function saveItem(itemId) {
+    const newVers =vers.map((item) => {
+      if (item.id ===itemId) {
+        return {...item, isEditing: !item.isEditing}
+      }
+      return item;
+
+  });
+  setVers(newVers);
+  toggleEdit(itemId);
+  }
+
   return (
     <ul className="list bg-base-200 rounded-box">
       {vers.map((item) => (
@@ -40,7 +52,7 @@ export function List({ vers, setVers }) {
           {item.isEditing ? (
             <input
               type="text"
-              className="input input-primary grow mr-4"
+              className="input input-primary grow mr-2"
               value={item.value}
               onChange={(e) => handleChange(item.id, e.target.value)}
             />
@@ -53,10 +65,13 @@ export function List({ vers, setVers }) {
             checked={item.completed}
             onChange={() => toggleCompleted(item.id)}
           />
-          <button className="btn btn-sm btn-primary ml-4" onClick={() => {toggleEdit(item.id);
+          <button className="btn btn-sm btn-primary ml-2" onClick={() => {toggleEdit(item.id);
           }}>
             ✏
           </button>
+          {item.isEditing && (
+              <button className="btn btn-sm btn-primary ml-2" onClick={() => saveItem(item.id)}>Сохранить</button>
+            )}
         </li>
       ))}
     </ul>

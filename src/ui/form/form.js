@@ -12,6 +12,7 @@ const Form = ({ vers, setVers }) => {
 
     setVers([...vers, newItem]);
     inputRef.current.focus();
+
   }
   return (
     <form action={addItem} className="flex flex-wrap gap-4 w-full mb-6">
@@ -23,8 +24,9 @@ const Form = ({ vers, setVers }) => {
         placeholder="Что нужно сделать?"
       />
       <button className="btn btn-primary grow" type="submit">
-        {vers.some((item) => item.isEditing) ? "Сохранить" : "Добавить"}
+        Добавить
       </button>
+
     </form>
   );
 };
