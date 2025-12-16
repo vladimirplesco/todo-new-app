@@ -13,7 +13,10 @@ export function List({ vers, setVers }) {
   function toggleEdit(itemId) {
     const newVers = vers.map((item) => {
       if (item.id === itemId) {
-        return { ...item, isEditing: !item.isEditing };
+        return { ...item, 
+          isEditing: !item.isEditing,
+          editValue: item.value,
+        };
       }
     return { ...item, isEditing: false };
     });
@@ -23,7 +26,7 @@ export function List({ vers, setVers }) {
   function handleChange(itemId, newValue) {
     const newVers = vers.map((item) => {
       if (item.id === itemId) {
-        return { ...item, value: newValue };
+        return { ...item, editValue: newValue };
       }
       return item;
     });
@@ -33,13 +36,16 @@ export function List({ vers, setVers }) {
   function saveItem(itemId) {
     const newVers =vers.map((item) => {
       if (item.id ===itemId) {
-        return {...item, isEditing: !item.isEditing}
+        return {
+          ...item, 
+          isEditing: false,
+          value: item.editValue,
+        }
       }
       return item;
 
   });
   setVers(newVers);
-  toggleEdit(itemId);
   }
 
   return (
@@ -53,7 +59,7 @@ export function List({ vers, setVers }) {
             <input
               type="text"
               className="input input-primary grow mr-2"
-              value={item.value}
+              value={item.editValue}
               onChange={(e) => handleChange(item.id, e.target.value)}
             />
           ) : (
