@@ -1,53 +1,47 @@
+'use client';
+import { useState} from "react"
+
 export function List({ vers, setVers }) {
 
-  function toggleCompleted(itemId) {
-    const newVers = vers.map((item) => {
-      if (item.id === itemId) {
-        return { ...item, completed: !item.completed };
-      }
-      return item;
-    });
-    setVers(newVers);
-  }
-
-  function toggleEdit(itemId) {
-    const newVers = vers.map((item) => {
-      if (item.id === itemId) {
-        return { ...item, 
-          isEditing: !item.isEditing,
-          editValue: item.value,
-        };
-      }
-    return { ...item, isEditing: false };
-    });
-    setVers(newVers);
-  }
-
-  function handleChange(itemId, newValue) {
-    const newVers = vers.map((item) => {
-      if (item.id === itemId) {
-        return { ...item, editValue: newValue };
-      }
-      return item;
-    });
-    setVers(newVers);
-  }
-
-  function saveItem(itemId) {
-    const newVers =vers.map((item) => {
-      if (item.id ===itemId) {
-        return {
-          ...item, 
-          isEditing: false,
-          value: item.editValue,
-        }
-      }
-      return item;
-
+  const [editing, setEditing] = useState ({
+    id: null,
+    value: "",
   });
-  setVers(newVers);
+
+  function startEdit(item) {
+    setEditing({
+      id: item.id,
+      value: item.value,
+    })
   }
 
+  function changeEdit(value) {
+    setEditing((prevEditing) => ({...prevEditing, value}));
+  }
+
+  function saveEdit() {
+    setVers((prevVers) => 
+      prevVers.map((item) =>
+        item.id === editing.id
+          ? {...item, value: editing.value }
+          : item
+      )
+    );
+
+    setEditing({ id: null, value: ""});
+  }
+
+  function toggleCompleted(id) {
+    setVers((prevVers) =>
+      prevVers.map((item) =>
+        item.id === id
+          ? { ...item, completed: !item.completed }
+          : item
+      )
+    );
+  }
+
+  
   return (
     <ul className="list bg-base-200 rounded-box">
       {vers.map((item) => (
@@ -55,12 +49,13 @@ export function List({ vers, setVers }) {
           className="border-b border-base-content/10 last:border-b-0 p-4 flex justify-between  items-center"
           key={item.id}
         >
-          {item.isEditing ? (
+          {editing.id === item.id ? (
             <input
+              autoFocus
               type="text"
               className="input input-primary grow mr-2"
-              value={item.editValue}
-              onChange={(e) => handleChange(item.id, e.target.value)}
+              value={editing.value}
+              onChange={(e) => changeEdit(e.target.value)}
             />
           ) : (
             <span className="grow">{item.value}</span>
@@ -71,13 +66,13 @@ export function List({ vers, setVers }) {
             checked={item.completed}
             onChange={() => toggleCompleted(item.id)}
           />
-          <button className="btn btn-sm btn-primary ml-2" onClick={() => {toggleEdit(item.id);
-          }}>
-            ✏
-          </button>
-          {item.isEditing && (
-              <button className="btn btn-sm btn-primary ml-2" onClick={() => saveItem(item.id)}>Сохранить</button>
-            )}
+
+          {editing.id === item.id ? (
+            <button type="button"  className="btn btn-sm btn-primary ml-2" onClick={saveEdit}>Сохранить</button>
+          ) : (
+            <button type="button" className="btn btn-sm btn-primary ml-2" onClick={() => startEdit(item)}>✏</button>
+          )}
+
         </li>
       ))}
     </ul>

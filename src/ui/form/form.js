@@ -3,7 +3,7 @@ import { useRef } from "react";
 const Form = ({ vers, setVers }) => {
   const inputRef = useRef(null);
   function addItem() {
-    e.preventDefault();
+    // e.preventDefault();
     
     const text = inputRef.current.value.trim();
     if (!text) return;
@@ -11,9 +11,9 @@ const Form = ({ vers, setVers }) => {
     const newItem = {
       id: crypto.randomUUID(),
       value: text,
-      editValue: text,
+      // editValue: text,
       completed: false,
-      isEditing: false,
+      // isEditing: false,
     };
 
     setVers([...vers, newItem]);
