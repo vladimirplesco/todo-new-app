@@ -9,6 +9,8 @@ import { Delete } from "../ui/delete/delete";
 
 export default function Home() {
   const [vers, setVers] = useState([]);
+  const [editVal, setEditVal] = useState(null);
+
 
   useEffect(() => {
     const storedVers = localStorage.getItem("vers");

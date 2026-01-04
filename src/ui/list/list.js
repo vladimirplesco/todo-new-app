@@ -46,14 +46,14 @@ export function List({ vers, setVers }) {
     <ul className="list bg-base-200 rounded-box">
       {vers.map((item) => (
         <li
-          className="border-b border-base-content/10 last:border-b-0 p-4 flex justify-between  items-center"
+          className="border-b border-base-content/30 p-4 flex justify-between  items-center"
           key={item.id}
         >
           {editing.id === item.id ? (
             <input
               autoFocus
               type="text"
-              className="input input-primary grow mr-2"
+              className="input input-bordered flex-1 grow mr-2"
               value={editing.value}
               onChange={(e) => changeEdit(e.target.value)}
             />
@@ -68,7 +68,7 @@ export function List({ vers, setVers }) {
           />
 
           {editing.id === item.id ? (
-            <button type="button"  className="btn btn-sm btn-primary ml-2" onClick={saveEdit}>Сохранить</button>
+            <button type="button"  className="btn btn-sm btn-success  ml-2" onClick={saveEdit}>Сохранить</button>
           ) : (
             <button type="button" className="btn btn-sm btn-primary ml-2" onClick={() => startEdit(item)}>✏</button>
           )}

@@ -16,7 +16,7 @@ const Form = ({ vers, setVers }) => {
       // isEditing: false,
     };
 
-    setVers([...vers, newItem]);
+    setVers((prev) =>[...prev, newItem]);
     inputRef.current.focus();
 
   }
