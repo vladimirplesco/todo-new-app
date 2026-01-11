@@ -1,47 +1,44 @@
-'use client';
-import { useState} from "react"
+"use client";
+import { useState } from "react";
 
 export function List({ vers, setVers }) {
-
-  const [editing, setEditing] = useState ({
+  const [editing, setEditing] = useState({
     id: null,
     value: "",
   });
 
   function startEdit(item) {
+    setVers((prevVers) =>
+      prevVers.map((i) => (item.id === i.id ? { ...i, completed: false } : i))
+    );
     setEditing({
       id: item.id,
       value: item.value,
-    })
+    });
   }
 
   function changeEdit(value) {
-    setEditing((prevEditing) => ({...prevEditing, value}));
+    setEditing((prevEditing) => ({ ...prevEditing, value }));
   }
 
   function saveEdit() {
-    setVers((prevVers) => 
+    setVers((prevVers) =>
       prevVers.map((item) =>
-        item.id === editing.id
-          ? {...item, value: editing.value }
-          : item
+        item.id === editing.id ? { ...item, value: editing.value } : item
       )
     );
 
-    setEditing({ id: null, value: ""});
+    setEditing({ id: null, value: "" });
   }
 
   function toggleCompleted(id) {
     setVers((prevVers) =>
       prevVers.map((item) =>
-        item.id === id
-          ? { ...item, completed: !item.completed }
-          : item
+        item.id === id ? { ...item, completed: !item.completed } : item
       )
     );
   }
 
-  
   return (
     <ul className="list bg-base-200 rounded-box">
       {vers.map((item) => (
@@ -58,7 +55,13 @@ export function List({ vers, setVers }) {
               onChange={(e) => changeEdit(e.target.value)}
             />
           ) : (
-            <span className="grow">{item.value}</span>
+            <span
+              className={`grow flex1 ${
+                item.completed ? "line-through text-gray-400" : ""
+              }`}
+            >
+              {item.value}
+            </span>
           )}
           <input
             type="checkbox"
@@ -68,11 +71,22 @@ export function List({ vers, setVers }) {
           />
 
           {editing.id === item.id ? (
-            <button type="button"  className="btn btn-sm btn-success  ml-2" onClick={saveEdit}>Сохранить</button>
+            <button
+              type="button"
+              className="btn btn-sm btn-success  ml-2"
+              onClick={saveEdit}
+            >
+              Сохранить
+            </button>
           ) : (
-            <button type="button" className="btn btn-sm btn-primary ml-2" onClick={() => startEdit(item)}>✏</button>
+            <button
+              type="button"
+              className="btn btn-sm btn-primary ml-2"
+              onClick={() => startEdit(item)}
+            >
+              ✏
+            </button>
           )}
-
         </li>
       ))}
     </ul>
